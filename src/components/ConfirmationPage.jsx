@@ -10,10 +10,7 @@ function ConfirmationPage() {
 
   const getOrderInfo = async (orderID) => {
     try {
-      const response = await fetch(
-        `http://localhost:3001/api/orders/${orderID}`,
-        { mode: "cors" }
-      );
+      const response = await fetch(`/api/orders/${orderID}`, { mode: "cors" });
       const data = await response.json();
       setOrderInfo(data);
     } catch (error) {
