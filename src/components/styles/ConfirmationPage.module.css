@@ -1,0 +1,10 @@
+.ConfirmationPageContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 40px 80px;
+  background-color: var(--primary-color);
+  color: var(--primary-text);
+  overflow-y: hidden;
+  position: relative;
+}
