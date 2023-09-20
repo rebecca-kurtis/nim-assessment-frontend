@@ -1,0 +1,44 @@
+.OrderConfirmationContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.OrderInfoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  padding: 20px;
+  width: 400px;
+}
+
+.OrderInfoContainer h4 {
+  padding: 10px;
+}
+
+.OrderInfoContainer p {
+  font-weight: 500;
+}
+
+.OrderItemsListContainer {
+  padding-bottom: 20px;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 350px;
+}
+
+td,
+th {
+  border: 1px solid var(--secondary-color);
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #8abd9157;
+}
