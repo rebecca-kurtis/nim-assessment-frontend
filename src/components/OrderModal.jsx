@@ -6,6 +6,7 @@ function OrderModal({ order, setOrderModal }) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
+  const [errorMessages, setErrorMessages] = useState({});
 
   const navigate = useNavigate();
 
@@ -27,6 +28,33 @@ function OrderModal({ order, setOrderModal }) {
       navigate(`/order-confirmation/${data.id}`);
     }
   };
+
+  function validateFormCheck() {
+    let isValid = true;
+    const errors = {};
+
+    const phonePattern = /^\(?(\d{3})\)?[- ]?\d{3}[- ]?\d{4}$/;
+
+    if (!name) {
+      errors.name = "Name must be filled out!";
+      isValid = false;
+    }
+
+    if (!address) {
+      errors.address = "Address must be filled out!";
+      isValid = false;
+    }
+
+    if (!phone || !phone.match(phonePattern)) {
+      errors.phone = "Invalid Phone Number!";
+      isValid = false;
+    }
+    setErrorMessages(errors);
+    if (isValid) {
+      placeOrder();
+    }
+  }
+
   return (
     <>
       <div
@@ -55,6 +83,11 @@ function OrderModal({ order, setOrderModal }) {
                 type="text"
                 id="name"
               />
+              {errorMessages.name && (
+                <div className={styles.errorMessage} style={{ color: "red" }}>
+                  <h4>{errorMessages.name}</h4>
+                </div>
+              )}
             </label>
           </div>
           <div className={styles.formGroup}>
@@ -68,6 +101,11 @@ function OrderModal({ order, setOrderModal }) {
                 type="phone"
                 id="phone"
               />
+              {errorMessages.phone && (
+                <div className={styles.errorMessage} style={{ color: "red" }}>
+                  <h4>{errorMessages.phone}</h4>
+                </div>
+              )}
             </label>
           </div>
           <div className={styles.formGroup}>
@@ -81,6 +119,11 @@ function OrderModal({ order, setOrderModal }) {
                 type="phone"
                 id="address"
               />
+              {errorMessages.address && (
+                <div className={styles.errorMessage} style={{ color: "red" }}>
+                  <h4>{errorMessages.address}</h4>
+                </div>
+              )}
             </label>
           </div>
         </form>
@@ -94,7 +137,7 @@ function OrderModal({ order, setOrderModal }) {
           </button>
           <button
             onClick={() => {
-              placeOrder();
+              validateFormCheck();
             }}
             className={styles.orderModalPlaceOrder}
           >

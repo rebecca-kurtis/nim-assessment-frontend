@@ -88,3 +88,8 @@
   align-items: flex-end;
   width: 100%;
 }
+
+.errorMessage h4 {
+  color: #ff0000;
+  font-weight: 400;
+}
