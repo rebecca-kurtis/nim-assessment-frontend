@@ -84,8 +84,7 @@ function OrderModal({ order, setOrderModal }) {
                 id="name"
               />
               {errorMessages.name && (
-                <div className={styles.errorMessage}
-                style={{color: "red"}}>
+                <div className={styles.errorMessage} style={{ color: "red" }}>
                   <h4>{errorMessages.name}</h4>
                 </div>
               )}
@@ -103,8 +102,7 @@ function OrderModal({ order, setOrderModal }) {
                 id="phone"
               />
               {errorMessages.phone && (
-                <div className={styles.errorMessage}
-                style={{color: "red"}}>
+                <div className={styles.errorMessage} style={{ color: "red" }}>
                   <h4>{errorMessages.phone}</h4>
                 </div>
               )}
@@ -122,8 +120,7 @@ function OrderModal({ order, setOrderModal }) {
                 id="address"
               />
               {errorMessages.address && (
-                <div className={styles.errorMessage} 
-                style={{color: "red"}}>
+                <div className={styles.errorMessage} style={{ color: "red" }}>
                   <h4>{errorMessages.address}</h4>
                 </div>
               )}
